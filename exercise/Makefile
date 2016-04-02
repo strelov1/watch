@@ -1,0 +1,3 @@
+test:
+	@ ruby solution.rb
+    
