@@ -1,24 +1,23 @@
 require 'wrong/assert'
 include Wrong::Assert
 
-str = 'i like ruby'
-
 # BEGIN (write your solution here)
-solution1 = str.reverse
+def solution(time)
+    timeArray = time.split(".")
+    hours = timeArray[0].to_f()
+    min = timeArray[1].to_f()
+    if hours > 12
+        hours = hours - 12
+    end
+
+    minDegrees = 360.00 / 60.00 * min
+    hourDegrees = 360.00/12.00 * hours
+    hourDegreesMin = (360.00 / (12.00 * 60.00)) * min
+    hourDegreesResult = hourDegrees + hourDegreesMin
+    result = hourDegreesResult - minDegrees
+    return result.abs
+end
 # END
-
-assert { solution1 == 'ybur ekil i' }
-
-solution2 = ''
-solution2 << 'i '
-# BEGIN (write your solution here)
-solution2 << 'like ruby'
-# END
-
-assert { solution2 == str }
-
-# BEGIN (write your solution here)
-solution3 = "yes, #{str}"
-# END
-
-assert { solution3 == "yes, i like ruby" }
+assert { solution("15.15") == 7.5 }
+assert { solution("15.05") == 62.5 }
+assert { solution("15.20") == 20 }
