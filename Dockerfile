@@ -1,2 +1,1 @@
 FROM hexlet/hexlet-ruby
-
